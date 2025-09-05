@@ -1,0 +1,227 @@
+---
+title: "Foundations of Data Analytics - HW 1"
+author: "First Name - Last name - `flastname@floridapoly.edu`"
+output: html_notebook
+---
+
+# Problem 1
+
+Please enter your github repo address in the space provided below. I've added a little example to jog your memory.
+
+>Example:  [My GitHub Link](TheGitHubLink.com)
+
+
+> Enter Here: 
+[]()
+
+# Problem 2
+
+For this problem, you are asked to create a list of **3 concepts** you have learned about so far this semester. Enter the solution below in the space provided.
+
+a. Include the name of the course as a sub-heading (that is, using `##`)
+## Foundations of Data Analytics
+
+b. Include the concepts as an **unordered list** (This should not be done in a chunk of code, but simply inserted using markdown syntax). 
+1. "define"
+2. "collecting"
+3. "cleaning"
+4. "analyze"
+5. "share"
+6. "embrace"
+7. "summary"
+
+c. Include a link to information about at least one of the concept you listed (for example a link to the Wikipedia page about that concept/topics).
+[careerfoundry.com](https://careerfoundry.com/en/blog/data-analytics/the-data-analysis-process-step-by-step/)
+
+
+d. Include an an image that you think represents either one of the concepts or how you feel about one of the concepts. 
+
+**Remember: you can also scan in and save something you've drawn or taken a picture of yourself.**
+
+>Solution Below:
+[Spreadsheet](Chart_illustration.png)
+
+# Problem 3
+
+In this problem you will practice some basic R operations. Include solutions to each items by inserting a new R chunk of code (make sure you run the chunk so that the output is displayed)
+
+(a) Create a variable called `my_name` that contains your preferred name.
+
+```{r}
+# Solution for 3a:
+my_name<-"Kevin"
+```
+
+
+(b)  Create a variable called `name_length` that holds how many letters are in `my_name`. Do not just set how many letters you have in your name to this variable, use a built-in function.
+
+```{r}
+# Solution for 3b:
+name_length<-nchar(my_name)
+```
+
+
+(c) Show which value is bigger: $e^\pi$ or $\pi^e$. 
+
+> Hint: R has some built-in functions, `exp()` being one of them.
+
+```{r}
+# Solution for 3c:
+exp(1)^pi
+pi^exp(1)
+print("exp(1)^pi is larger than pi^exp(1)")
+```
+
+
+(d) Define a **function** called `add_three` that takes a single argument and returns a value with 3 units added to the original input.
+
+```{r}
+# Solution for 3d:
+add_three<-function(number){
+  third_of_number<-number/3
+  num1=third_of_number
+  num2=third_of_number
+  num3=third_of_number
+  print(num3)
+  #return(num1, num2, num3)
+}
+add_three(27)
+```
+
+
+(e)  Use the colon operator `:` to create a vector `v` of numbers from 10 to 49. Find the length of this vector using the `length()` function.
+
+```{r}
+# Solution for 3e:
+v<-10:49
+length(v)
+```
+
+(f) Use the `seq()` function to produce a range of number from -5 to 10 in 0.5 increments.
+
+```{r}
+# Solution for 3F:
+seq(-5, 10, 0.5)
+```
+
+
+# Problem 4
+
+
+(a) **Define a function** `imperial_to_metric` that takes in **two arguments**: a number of feet and a number of inches. The function should return the equivalent length in meters
+
+> To convert a length `L` from feet (`ft`) and inches (`inches`) to meters (`m`), one can use the relation: `L(m) = L(ft) × 0.3048 + L(inches) × 0.0254`
+
+```{r}
+# insert code here - edit this comment
+imperial_to_metric <- function(ft, inches) {
+  meters<-(ft*0.348)+(inches*0.0254)
+  return(cat(meters, "meters"))
+}
+```
+
+
+(b) Create a variable `height_in_meters` by passing your height in imperial to the `imperial_to_metric` function.
+
+```{r}
+# insert code here - edit this comment
+height_in_meters<-imperial_to_metric(5, 8)
+```
+
+
+# Problem 5
+
+(a) Create the following vectors in `R` (see the pattern and use appropriate functions to construct these vectors):
+
+$a = (5, 10, 15, 20, ..., 160)$
+
+$b = (87, 86, 85, ..., 56)$
+
+
+```{r}
+# insert code here - edit this comment
+vectors_by_5<-seq(5, 160, 5)
+vectors_by_5
+
+vectors_decreasing_by_1<-seq(87, 56, -1)
+vectors_decreasing_by_1
+```
+
+
+(b) Multiply these vectors and call the result `d` (element-wise multiplication). 
+
+```{r}
+# insert code here - edit this comment
+d <- vectors_by_5 * vectors_decreasing_by_1
+d
+```
+
+
+(c) What are the 19th, 20th, and 21st elements of `d`?
+
+```{r}
+# insert code here - edit this comment
+d[19]
+d[20]
+d[21]
+```
+
+
+(d) What are all of the elements of `d` which are less than 2000?
+
+```{r}
+# insert code here - edit this comment
+for (element in d) {
+ element
+  if(element<2000){
+    print(element)
+  }
+}
+```
+
+
+(e) How many elements of `d` are greater than 6000?
+
+
+```{r}
+# insert code here - edit this comment
+greater_than_6000_value<-0
+for(element in d){
+  if(element>6000){
+    greater_than_6000_value<-greater_than_6000_value+1
+  }
+}
+print(greater_than_6000_value)
+```
+
+
+# Problem 6 - Word Problem
+
+Assume that you have several investment choices. For each investment, there are two equally likely end-of-year forecasts: the optimistic value (up_value), and the pessimistic value (down_value). Assume the expected return and risk of each investment is given by:
+
+> expected_end_value = (up_value + down_value) / 2 <br>
+  expected_return = (expected_end_value - initial_investment) / initial_investment <br>
+  risk = (up_value - down_value) / 2 <br>
+
+a) Write a program that for one investment choice, prompts for three inputs:
+
+- initial investment amount
+- optimistic end value (up_value)
+- pessimistic end value (down_value)
+
+and then calculates the investment’s expected return and risk. You will need to enter your own chunks for this below:
+
+```{r}
+end_value_func<-function(ini_investment, upValue, downValue){
+  expected_end_value<-(upValue+downValue)/2
+  expected_return<-(expected_end_value-ini_investment)/ini_investment
+  risk<-(upValue-downValue)/2
+  return(cat("Your expected return is:", expected_return, "Your expected risk is:", risk))
+}
+
+input_investment<-as.numeric(readline("Initial Investment: "))
+input_upValue<-as.numeric(readline("optimistic value end of year forcast: "))
+input_downValue<-as.numeric(readline("pessimistic value end of year forcast: "))
+end_value_func(input_investment, input_upValue, input_downValue)
+
+```
