@@ -12,7 +12,7 @@ Please enter your github repo address in the space provided below. I've added a 
 
 
 > Enter Here: 
-[]()
+[My Git Hub Repo](https://github.com/Unpackwack/Homework-1-repo)
 
 # Problem 2
 
@@ -22,13 +22,9 @@ a. Include the name of the course as a sub-heading (that is, using `##`)
 ## Foundations of Data Analytics
 
 b. Include the concepts as an **unordered list** (This should not be done in a chunk of code, but simply inserted using markdown syntax). 
-1. "define"
-2. "collecting"
-3. "cleaning"
-4. "analyze"
-5. "share"
-6. "embrace"
-7. "summary"
+1. "collect"
+2. "clean"
+3. "analyze"
 
 c. Include a link to information about at least one of the concept you listed (for example a link to the Wikipedia page about that concept/topics).
 [careerfoundry.com](https://careerfoundry.com/en/blog/data-analytics/the-data-analysis-process-step-by-step/)
@@ -223,5 +219,6 @@ input_investment<-as.numeric(readline("Initial Investment: "))
 input_upValue<-as.numeric(readline("optimistic value end of year forcast: "))
 input_downValue<-as.numeric(readline("pessimistic value end of year forcast: "))
 end_value_func(input_investment, input_upValue, input_downValue)
+
 
 ```
